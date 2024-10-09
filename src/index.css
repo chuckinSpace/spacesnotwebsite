@@ -1,0 +1,121 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  background-color: #000;
+  color: #4ade80;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+.glow {
+  text-shadow: 0 0 10px #4ade80, 0 0 20px #4ade80, 0 0 30px #4ade80, 0 0 40px #4ade80;
+}
+
+.slime-container {
+  position: relative;
+}
+
+.slime {
+  border: 2px solid #4ade80;
+  box-shadow: 0 0 10px #4ade80, inset 0 0 10px #4ade80;
+}
+
+.slime::before,
+.slime::after {
+  content: '';
+  position: absolute;
+  background: #4ade80;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.slime::before {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: 10%;
+  animation: drip 3s infinite;
+}
+
+.slime::after {
+  width: 15px;
+  height: 15px;
+  top: -8px;
+  right: 15%;
+  animation: drip 2.5s infinite 1s;
+}
+
+@keyframes drip {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(120px) scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(150px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.title {
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 20px;
+  background: #4ade80;
+  border-radius: 50%;
+  filter: blur(3px);
+  animation: titleDrip 2s infinite;
+}
+
+@keyframes titleDrip {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(20px);
+  }
+}
+
+.slime-drip {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #4ade80;
+  border-radius: 50%;
+  filter: blur(3px);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+@keyframes slowDrip {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.slime-drip-1 { left: 10%; animation: slowDrip 15s linear infinite; }
+.slime-drip-2 { left: 20%; animation: slowDrip 12s linear infinite 2s; }
+.slime-drip-3 { left: 35%; animation: slowDrip 18s linear infinite 1s; }
+.slime-drip-4 { left: 50%; animation: slowDrip 14s linear infinite 3s; }
+.slime-drip-5 { left: 65%; animation: slowDrip 16s linear infinite; }
+.slime-drip-6 { left: 80%; animation: slowDrip 13s linear infinite 2s; }
+.slime-drip-7 { left: 90%; animation: slowDrip 17s linear infinite 1s; }
+.slime-drip-8 { left: 25%; animation: slowDrip 19s linear infinite; }
+.slime-drip-9 { left: 40%; animation: slowDrip 11s linear infinite 3s; }
+.slime-drip-10 { left: 75%; animation: slowDrip 20s linear infinite 2s; }
